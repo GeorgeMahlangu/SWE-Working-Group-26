@@ -1,24 +1,15 @@
 {
+  "//": "Shared, target-agnostic compiler options. Each workspace (server/client) extends this and adds its own target/module/emit settings. This file is not a build entry point on its own.",
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
-    "noEmit": true
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["server", "client"],
-  "references": [
-    { "path": "./server" },
-    { "path": "./client" }
-  ]
+  "files": []
 }

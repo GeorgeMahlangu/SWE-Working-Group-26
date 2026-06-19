@@ -1,41 +1,39 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [health, setHealth] = useState<string>('loading...')
+  const [count, setCount] = useState(0);
+  const [health, setHealth] = useState<string>('loading...');
 
   useEffect(() => {
     const checkHealth = async () => {
       try {
-        const response = await fetch('/api/health')
-        const data = await response.json()
-        setHealth(data.status)
-      } catch (error) {
-        setHealth('error')
+        const response = await fetch('/api/health');
+        const data = await response.json();
+        setHealth(data.status);
+      } catch {
+        setHealth('error');
       }
-    }
+    };
 
-    checkHealth()
-  }, [])
+    checkHealth();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full">
-        <h1 className="text-4xl font-bold text-center text-indigo-600 mb-6">
-          Node Conf Starter
-        </h1>
+        <h1 className="text-4xl font-bold text-center text-indigo-600 mb-6">Node Conf Starter</h1>
 
         <div className="space-y-6">
           <div className="bg-indigo-50 p-4 rounded-lg">
             <p className="text-sm text-gray-600 mb-2">Backend Status</p>
-            <p className="text-2xl font-bold text-indigo-600 capitalize">
+            <p className="text-2xl font-bold text-indigo-600 capitalize" data-testid="health">
               {health}
             </p>
           </div>
 
           <div className="bg-blue-50 p-4 rounded-lg">
             <p className="text-sm text-gray-600 mb-2">Counter</p>
-            <p className="text-2xl font-bold text-blue-600">
+            <p className="text-2xl font-bold text-blue-600" data-testid="count">
               {count}
             </p>
             <button
@@ -64,7 +62,7 @@ function App() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

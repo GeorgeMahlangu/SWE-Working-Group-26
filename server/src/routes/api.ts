@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 export const apiRouter = Router();
 
-apiRouter.get('/health', (req, res) => {
+apiRouter.get('/health', (_req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -17,7 +17,7 @@ apiRouter.post('/echo', (req, res) => {
   });
 });
 
-apiRouter.get('/info', (req, res) => {
+apiRouter.get('/info', (_req, res) => {
   res.json({
     name: 'Node Conf Starter API',
     version: '1.0.0',

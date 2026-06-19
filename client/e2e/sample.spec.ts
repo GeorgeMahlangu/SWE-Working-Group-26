@@ -1,29 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-test('homepage has title and counter button', async ({ page }) => {
+test('homepage shows the title and increments the counter', async ({ page }) => {
   await page.goto('/');
 
-  // Check for main title
-  const title = page.locator('text=Node Conf Starter');
-  await expect(title).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Node Conf Starter' })).toBeVisible();
 
-  // Check for increment button
-  const button = page.locator('button', { hasText: 'Increment' });
-  await expect(button).toBeVisible();
+  const count = page.getByTestId('count');
+  await expect(count).toHaveText('0');
 
-  // Test counter increment
-  const initialCount = page.locator('div:has-text("Counter") + p');
-  await expect(initialCount).toContainText('0');
-
-  await button.click();
-  await expect(initialCount).toContainText('1');
+  await page.getByRole('button', { name: 'Increment' }).click();
+  await expect(count).toHaveText('1');
 });
 
-test('backend health check displays', async ({ page }) => {
+test('shows the backend health status', async ({ page }) => {
   await page.goto('/');
 
-  const statusText = page.locator('text=healthy');
-  await expect(statusText).toBeVisible({ timeout: 5000 }).catch(() => {
-    // Health check might not be available in test environment
-  });
+  // The Playwright config starts the API server, so the health check resolves to "healthy".
+  await expect(page.getByTestId('health')).toHaveText('healthy');
 });

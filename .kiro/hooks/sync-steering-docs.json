@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Sync Steering Docs on Doc Change",
+      "trigger": "PostFileSave",
+      "description": "When any docs/*.md file is saved, checks steering files for alignment and updates them if needed",
+      "matcher": "Conference/payment-dispute-triage/docs/.*\\.md",
+      "action": {
+        "type": "agent",
+        "prompt": "A documentation file in docs/ was just saved. Review the change and check whether any of the Kiro steering files need updating to stay aligned.\n\nCheck the following steering files:\n- .kiro/steering/product.md — enumerations, domain values, user journeys table, success criteria\n- .kiro/steering/structure.md — data model fields, UI screens, API endpoints\n- .kiro/steering/rules.md — triage rule definitions, thresholds, precedence order\n- .kiro/steering/tech.md — tech stack, commands (only if the saved file is architecture or tech related)\n\nRules:\n1. Read the saved doc file first to understand what changed.\n2. Read the relevant steering file(s).\n3. Only update a steering file if there is a real discrepancy — do not reformat or rewrite sections that are already accurate.\n4. If enumerations changed (e.g. PaymentType, IssueCategory, RecommendedAction, Priority, AgeBand, RoutingQueue), make sure all steering files use the same values.\n5. If new requirements were added, check that structure.md reflects any new data model fields or API endpoints.\n6. If thresholds or business parameters changed (HIGH_VALUE_THRESHOLD, SLA_DAYS, etc.), update rules.md.\n7. Report what you checked and what (if anything) you updated."
+      }
+    }
+  ]
+}

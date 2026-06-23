@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Load Project Context on Session Start",
+      "trigger": "SessionStart",
+      "description": "Loads essential project context at the start of every session so Kiro is immediately oriented",
+      "action": {
+        "type": "agent",
+        "prompt": "A new session has started for the Payment Dispute Triage project. Before doing anything else, orient yourself:\n\n1. Read .kiro/steering/product.md — understand the domain, enumerations, and user journeys\n2. Read .kiro/steering/structure.md — understand the file layout, data model, and API endpoints\n3. Read .kiro/steering/rules.md — understand the triage rule precedence and business parameters\n4. Read .kiro/steering/tech.md — understand the stack and available commands\n\nKey things to keep in mind:\n- Enumerations are UPPERCASE (CARD, EFT, SETTLED, RESOLVE_NOW, REFER, etc.) — always use these exact values\n- Action display labels: RESOLVE_NOW→'Resolve Immediately', INVESTIGATE→'Investigate Further', ESCALATE→'Escalate', REFER→'Refer to Another Team'\n- The project root is Conference/payment-dispute-triage/\n- Dispute CRUD routes: /api/disputes and /api/disputes/:id/*\n- Utility routes (NOT under /api/disputes): /api/dashboard, /api/enums, /api/rules, /api/seed\n- SQLite is the only database — no external services\n- Requirements: docs/requirements.md v4.0 (93 requirements)\n- Test cases: docs/test-cases.md (103 test cases, 100% coverage)\n- UI screens: docs/ui-spec.md (4 screens) — visual rules in .kiro/skills/ui-design.md\n- Architecture: docs/architecture.md\n- Before generating ANY UI component, read .kiro/skills/ui-design.md first\n\nConfirm you are ready to assist."
+      }
+    }
+  ]
+}

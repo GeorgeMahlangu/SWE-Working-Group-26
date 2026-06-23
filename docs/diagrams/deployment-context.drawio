@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" agent="Kiro">
+  <diagram id="deployment-context" name="Deployment / Context">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Deployment &amp; Context — Single-Machine Prototype (REQ-110, REQ-112, REQ-122, REQ-127)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=17;fontStyle=1;fontColor=#0033A0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="12" width="840" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- Actor -->
+        <mxCell id="actor" value="Operations User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;fontStyle=1;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="70" y="330" width="40" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Developer machine node -->
+        <mxCell id="machine" value="Developer / Demo Machine (localhost)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingTop=8;spacingLeft=10;fontSize=13;fontStyle=1;fillColor=#F5F7FA;strokeColor=#0033A0;fontColor=#0033A0;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="220" y="80" width="900" height="600" as="geometry" />
+        </mxCell>
+
+        <!-- Browser node -->
+        <mxCell id="browser" value="Web Browser  «device»" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingTop=8;spacingLeft=10;fontSize=12;fontStyle=1;fillColor=#FFFFFF;strokeColor=#2563EB;fontColor=#1E40AF;" vertex="1" parent="1">
+          <mxGeometry x="260" y="150" width="360" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="spa" value="React 18 SPA (Vite dev server)&#10;:5173&#10;Pages, components, useDisputes hooks&#10;Tailwind CSS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="285" y="195" width="310" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="proxy" value="Vite dev proxy  /api/* → :3001 (no CORS)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="285" y="310" width="310" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Node process node -->
+        <mxCell id="node" value="Node.js 22 Process  «runtime»" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingTop=8;spacingLeft=10;fontSize=12;fontStyle=1;fillColor=#FFFFFF;strokeColor=#16A34A;fontColor=#166534;" vertex="1" parent="1">
+          <mxGeometry x="700" y="150" width="380" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="express" value="Express API  :3001&#10;routes → services → rules&#10;validation + errorHandler middleware" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="725" y="195" width="330" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="engine" value="Triage Engine (pure functions)&#10;triageEngine.ts · triageRules.ts (REQ-030–048, 111)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="725" y="290" width="330" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="prisma" value="Prisma ORM (disputeService.ts)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="725" y="365" width="330" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="SQLite  dev.db&#10;(single file — REQ-112)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=14;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="820" y="425" width="150" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- No external systems note -->
+        <mxCell id="ext" value="No external integrations: no core banking, card processing, case management, fraud systems, notifications, or authentication (REQ-110, REQ-127). All data is synthetic and local." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;fillColor=#FFF7E6;strokeColor=#D97706;fontColor=#7C2D12;fontSize=11;rounded=1;arcSize=8;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="560" width="820" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="c1" value="HTTPS&#10;:5173" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;fontColor=#374151;fontSize=10;" edge="1" parent="1" source="actor" target="browser"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c2" value="HTTP /api/* (proxied)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;fontColor=#374151;fontSize=10;" edge="1" parent="1" source="proxy" target="express"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c3" value="evaluate()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;fontColor=#374151;fontSize=10;" edge="1" parent="1" source="express" target="engine"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c4" value="queries" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;fontColor=#374151;fontSize=10;" edge="1" parent="1" source="express" target="prisma"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c5" value="file I/O" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;fontColor=#374151;fontSize=10;" edge="1" parent="1" source="prisma" target="db"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

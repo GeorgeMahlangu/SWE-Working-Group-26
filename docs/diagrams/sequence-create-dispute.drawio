@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" agent="Kiro">
+  <diagram id="sequence-create-dispute" name="Sequence — Create Dispute">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1260" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Sequence — Create Dispute (POST /api/disputes, Journeys 1 &amp; 2)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#0033A0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="10" width="720" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline headers -->
+        <mxCell id="hA" value="Operations&#10;User" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFF7E6;strokeColor=#B45309;fontColor=#111827;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="50" width="160" height="44" as="geometry" /></mxCell>
+        <mxCell id="hB" value="CaptureDispute&#10;(Frontend)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="240" y="50" width="160" height="44" as="geometry" /></mxCell>
+        <mxCell id="hC" value="Express Route&#10;/api/disputes" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="440" y="50" width="160" height="44" as="geometry" /></mxCell>
+        <mxCell id="hD" value="disputeService" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="640" y="50" width="160" height="44" as="geometry" /></mxCell>
+        <mxCell id="hE" value="triageEngine" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#1E40AF;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="840" y="50" width="160" height="44" as="geometry" /></mxCell>
+        <mxCell id="hF" value="SQLite (Prisma)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#166534;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="1040" y="50" width="160" height="44" as="geometry" /></mxCell>
+
+        <!-- Lifelines (dashed) -->
+        <mxCell id="lA" style="endArrow=none;dashed=1;html=1;strokeColor=#9CA3AF;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="120" y="94" as="sourcePoint" /><mxPoint x="120" y="820" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="lB" style="endArrow=none;dashed=1;html=1;strokeColor=#9CA3AF;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="320" y="94" as="sourcePoint" /><mxPoint x="320" y="820" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="lC" style="endArrow=none;dashed=1;html=1;strokeColor=#9CA3AF;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="520" y="94" as="sourcePoint" /><mxPoint x="520" y="820" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="lD" style="endArrow=none;dashed=1;html=1;strokeColor=#9CA3AF;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="720" y="94" as="sourcePoint" /><mxPoint x="720" y="820" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="lE" style="endArrow=none;dashed=1;html=1;strokeColor=#9CA3AF;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="920" y="94" as="sourcePoint" /><mxPoint x="920" y="820" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="lF" style="endArrow=none;dashed=1;html=1;strokeColor=#9CA3AF;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1120" y="94" as="sourcePoint" /><mxPoint x="1120" y="820" as="targetPoint" /></mxGeometry></mxCell>
+
+        <!-- Messages -->
+        <mxCell id="m1" value="1: Complete form &amp; submit" style="html=1;endArrow=block;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="120" y="135" as="sourcePoint" /><mxPoint x="320" y="135" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="sb" value="validate input (REQ-009, REQ-125)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=10;" vertex="1" parent="1"><mxGeometry x="230" y="150" width="190" height="34" as="geometry" /></mxCell>
+
+        <mxCell id="m3" value="2: POST /api/disputes (payload)" style="html=1;endArrow=block;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="320" y="210" as="sourcePoint" /><mxPoint x="520" y="210" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="sc" value="validate fields (REQ-003–009)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=10;" vertex="1" parent="1"><mxGeometry x="430" y="226" width="180" height="34" as="geometry" /></mxCell>
+
+        <mxCell id="m5" value="3: createDispute(input)" style="html=1;endArrow=block;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="520" y="300" as="sourcePoint" /><mxPoint x="720" y="300" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="sd1" value="assign queue; compute age, ageBand, dueDate (REQ-025–028, 010–020)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=10;" vertex="1" parent="1"><mxGeometry x="615" y="316" width="210" height="44" as="geometry" /></mxCell>
+
+        <mxCell id="m7" value="4: evaluate(dispute)" style="html=1;endArrow=block;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="720" y="400" as="sourcePoint" /><mxPoint x="920" y="400" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="se" value="rules first-match + 7/14-day modifiers (REQ-030–048, 018, 019)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#111827;fontSize=10;" vertex="1" parent="1"><mxGeometry x="815" y="418" width="215" height="48" as="geometry" /></mxCell>
+
+        <mxCell id="m9" value="5: {action, priority, ruleId, explanation, factors}" style="html=1;endArrow=open;dashed=1;strokeColor=#2563EB;fontColor=#1E40AF;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="920" y="505" as="sourcePoint" /><mxPoint x="720" y="505" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="sd2" value="generate caseReference; set fraudFlag (REQ-035)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=10;" vertex="1" parent="1"><mxGeometry x="615" y="525" width="210" height="44" as="geometry" /></mxCell>
+
+        <mxCell id="m11" value="6: INSERT Dispute + StatusTransition(OPEN) (REQ-002, REQ-084)" style="html=1;endArrow=block;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="720" y="620" as="sourcePoint" /><mxPoint x="1120" y="620" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m12" value="7: persisted record" style="html=1;endArrow=open;dashed=1;strokeColor=#16A34A;fontColor=#166534;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1120" y="660" as="sourcePoint" /><mxPoint x="720" y="660" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m13" value="8: dispute + triage" style="html=1;endArrow=open;dashed=1;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="720" y="700" as="sourcePoint" /><mxPoint x="520" y="700" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m14" value="9: 201 Created (full dispute + triage)" style="html=1;endArrow=open;dashed=1;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="520" y="740" as="sourcePoint" /><mxPoint x="320" y="740" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m15" value="10: show recommendation &amp; explanation (REQ-095)" style="html=1;endArrow=open;dashed=1;strokeColor=#374151;fontColor=#111827;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="320" y="780" as="sourcePoint" /><mxPoint x="120" y="780" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="noteErr" value="If validation fails: route returns 400 (missing/invalid field) or 422 (unknown enum) and no record is created (REQ-003–006)." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;fillColor=#FFF7E6;strokeColor=#D97706;fontColor=#7C2D12;fontSize=10;rounded=1;arcSize=8;spacingLeft=8;spacingTop=6;" vertex="1" parent="1"><mxGeometry x="40" y="840" width="520" height="46" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Format Check on Save",
+      "trigger": "PostFileSave",
+      "description": "Checks Prettier formatting on code files after save and warns if formatting is off",
+      "matcher": "\\.(ts|tsx|js|css)$",
+      "action": {
+        "type": "command",
+        "command": "cd /Users/vusimozi.solani/Documents/Clarity/Conference/payment-dispute-triage && npm run format:check --silent 2>&1 | tail -10"
+      }
+    }
+  ]
+}

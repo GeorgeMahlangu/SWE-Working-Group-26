@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Run Tests on Test File Create",
+      "trigger": "PostFileCreate",
+      "description": "Runs the test suite automatically when a new test file is created",
+      "matcher": "\\.(test|spec)\\.(ts|tsx)$",
+      "action": {
+        "type": "command",
+        "command": "cd /Users/vusimozi.solani/Documents/Clarity/Conference/payment-dispute-triage && npm test --silent 2>&1 | tail -20"
+      }
+    }
+  ]
+}

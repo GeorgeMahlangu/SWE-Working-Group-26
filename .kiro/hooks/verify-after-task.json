@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Verify Implementation After Task",
+      "trigger": "PostTaskExec",
+      "description": "After a spec task completes, runs tests and checks that the implementation matches requirements",
+      "action": {
+        "type": "agent",
+        "prompt": "A spec task was just completed. Before marking it done, verify the implementation:\n\n1. Run `npm test` from the project root and check for failures\n2. Run `npm run lint` and check for errors\n3. Check that the code uses the correct enumerations from requirements.md v4.0:\n   - PaymentType: CARD | EFT | INTERNAL_TRANSFER\n   - IssueCategory: DUPLICATE_DEBIT | FAILED_TRANSFER | MISSING_PAYMENT | UNAUTHORISED_TRANSACTION | INCORRECT_AMOUNT\n   - TransactionStatus: SETTLED | PENDING | FAILED | REVERSED\n   - RecommendedAction: RESOLVE_NOW | INVESTIGATE | ESCALATE | REFER\n   - Priority: CRITICAL | HIGH | MEDIUM | LOW\n4. Confirm the triage rule precedence order matches REQ-030 (age > high-value > unauthorised > SLA breach > pending > duplicate > failed transfer > incorrect amount > missing payment > card routing > default)\n5. Report pass/fail for each check and flag any issues found."
+      }
+    }
+  ]
+}

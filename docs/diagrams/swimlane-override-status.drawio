@@ -1,0 +1,115 @@
+<mxfile host="65bd71144e">
+    <diagram id="swimlane-override-status" name="Swimlane — Override &amp; Status">
+        <mxGraphModel dx="1000" dy="1059" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1280" pageHeight="1240" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="Swimlane — Override a Recommendation &amp; Progress Status (Journeys 5 &amp; 6)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#0033A0;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="8" width="840" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane1" value="Operations User" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="280" height="1140" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane2" value="DisputeDetail (Frontend)" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="40" width="300" height="1140" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane3" value="Express API + disputeService" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="40" width="380" height="1140" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane4" value="SQLite (Prisma)" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="40" width="240" height="1140" as="geometry"/>
+                </mxCell>
+                <mxCell id="secA" value="A. Override Recommendation (Journey 5 — REQ-075–079, 084)" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#0033A0;fillColor=none;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="70" width="600" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="a1" value="Click “Override&#10;Recommendation”" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFF7E6;strokeColor=#B45309;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="100" width="240" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a2" value="Open OverrideModal:&#10;action/priority selects&#10;+ reason field" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="170" width="260" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="a3" value="Choose new action/priority,&#10;enter reason, confirm" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFF7E6;strokeColor=#B45309;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="250" width="240" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a4" value="POST /api/disputes/:id/override&#10;Validate reason 10–300 &amp; ≥1 field&#10;(REQ-077)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="320" width="320" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="a6" value="UPDATE Dispute +&#10;write audit (REQ-084)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=14;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="430" width="200" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="a7" value="Show manual-override&#10;indicator on detail (REQ-079)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="540" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="secB" value="B. Progress Status (Journey 6 — REQ-080–084)" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#0033A0;fillColor=none;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="630" width="600" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="b1" value="Select next status&#10;(IN_PROGRESS / RESOLVED / CLOSED)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFF7E6;strokeColor=#B45309;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="660" width="240" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="b2" value="StatusTransition control;&#10;resolution note if RESOLVED" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="730" width="260" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="b3" value="PATCH /api/disputes/:id/status&#10;Transition allowed?&#10;(REQ-080, 082)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="810" width="320" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="b4" value="If RESOLVED: require&#10;note ≥ 10 chars (REQ-081)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="930" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="b6" value="INSERT StatusTransition;&#10;CLOSED is immutable (REQ-083)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=14;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="1030" width="200" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="b7" value="Updated status reflected&#10;on detail view" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="1110" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="a1" target="a2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="a2" target="a3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="a3" target="a4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea4" value="valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16A34A;fontColor=#166534;fontSize=10;" parent="1" source="a4" target="a5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea4b" value="invalid 400" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;dashed=1;strokeColor=#D97706;fontColor=#B45309;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="a4" target="a3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="a5" target="a6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="a6" target="a7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="b1" target="b2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="b2" target="b3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb3" value="allowed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16A34A;fontColor=#166534;fontSize=10;" parent="1" source="b3" target="b4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb3b" value="invalid transition 400/409" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;dashed=1;strokeColor=#DC2626;fontColor=#B91C1C;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="b3" target="b2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb4" value="ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16A34A;fontColor=#166534;fontSize=10;" parent="1" source="b4" target="b5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="b5" target="b6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" parent="1" source="b6" target="b7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a5" value="Preserve originalAction/&#10;originalPriority; set&#10;isOverridden=true (REQ-078, 079)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="440" width="340" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="b5" value="Update status; write&#10;StatusTransition row (REQ-084)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="1040" width="340" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

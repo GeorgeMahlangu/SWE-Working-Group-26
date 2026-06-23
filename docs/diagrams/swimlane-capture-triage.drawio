@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="Kiro">
+  <diagram id="swimlane-capture-triage" name="Swimlane — Capture &amp; Triage">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Swimlane — Capture a Dispute &amp; Automatic Triage (Journeys 1 &amp; 2)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#0033A0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="8" width="840" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Lanes -->
+        <mxCell id="lane1" value="Operations User" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="260" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2" value="React Frontend" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="280" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3" value="Express API + Service" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="580" y="40" width="300" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="lane4" value="Triage Engine" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="880" y="40" width="260" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="lane5" value="SQLite (Prisma)" style="swimlane;startSize=30;html=1;fillColor=#EAF0FB;strokeColor=#0033A0;fontColor=#0033A0;fontStyle=1;fontSize=13;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="40" width="240" height="1100" as="geometry" />
+        </mxCell>
+
+        <!-- Nodes -->
+        <mxCell id="s1" value="Click &#8220;New Dispute&#8221;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFF7E6;strokeColor=#B45309;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="Render capture form&#10;(GET /api/enums &#8212; REQ-007)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="170" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="Complete fields,&#10;click Submit" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFF7E6;strokeColor=#B45309;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="Client-side validation&#10;(REQ-009, REQ-125)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="330" y="320" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" value="POST /api/disputes&#10;Server-side validation&#10;(REQ-003&#8211;009)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="610" y="410" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" value="Assign queue; compute&#10;age, ageBand, dueDate&#10;(REQ-025&#8211;028, 010&#8211;020)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="540" width="260" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="s7" value="Evaluate rules in&#10;precedence order;&#10;first match wins (REQ-030&#8211;048)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="630" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="s8" value="Apply 7/14-day modifiers&#10;(REQ-018, 019); build ruleId,&#10;explanation, factors (REQ-050&#8211;053)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#EFF6FF;strokeColor=#2563EB;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="710" width="220" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="s9" value="Generate caseReference;&#10;persist dispute + result" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="790" width="260" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="s10" value="INSERT Dispute +&#10;StatusTransition(OPEN)&#10;(REQ-002, REQ-084)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=14;fillColor=#F0FDF4;strokeColor=#16A34A;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="780" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s11" value="201 Created&#10;(full dispute + triage)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="600" y="890" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s12" value="Show confirmation +&#10;recommendation (REQ-095)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#374151;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="970" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s13" value="Review recommended&#10;action &amp; explanation" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFF7E6;strokeColor=#B45309;fontColor=#111827;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1050" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Flow edges -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16A34A;fontColor=#166534;fontSize=10;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4b" value="invalid &#8212; inline errors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;dashed=1;strokeColor=#D97706;fontColor=#B45309;fontSize=10;" edge="1" parent="1" source="s4" target="s3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#16A34A;fontColor=#166534;fontSize=10;" edge="1" parent="1" source="s5" target="s6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5b" value="400/422" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;dashed=1;strokeColor=#DC2626;fontColor=#B91C1C;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="s5" target="s4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s6" target="s7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s7" target="s8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s8" target="s9"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s9" target="s10"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s10" target="s11"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s11" target="s12"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#374151;" edge="1" parent="1" source="s12" target="s13"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

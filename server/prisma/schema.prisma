@@ -1,5 +1,8 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Prisma schema — Payment Dispute Triage
+// SQLite connector: enums and Json scalars are not supported, so enum-typed
+// fields are stored as String (validated in the app layer against the unions in
+// src/types/dispute.ts) and JSON payloads are stored as JSON-encoded String.
+// Traces: docs/architecture.md (Data Model), docs/requirements.md v4.0.
 
 generator client {
   provider = "prisma-client-js"
@@ -10,11 +13,70 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Example model - customize as needed
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+/// One row per customer payment dispute.
+model Dispute {
+  id            String   @id @default(uuid())
+  caseReference String   @unique // DSP-YYYYMMDD-XXXX (REQ-001)
+
+  // Captured input (REQ-001, REQ-003–008)
+  customerName      String
+  accountNumber     String // exactly 10 digits (validated in app)
+  transactionRef    String
+  amount            Float // ZAR, > 0
+  transactionDate   DateTime
+  paymentType       String // CARD | EFT | INTERNAL_TRANSFER
+  issueCategory     String // DUPLICATE_DEBIT | FAILED_TRANSFER | MISSING_PAYMENT | UNAUTHORISED_TRANSACTION | INCORRECT_AMOUNT
+  transactionStatus String // SETTLED | PENDING | FAILED | REVERSED
+  description       String? // optional, max 500 chars
+
+  // Lifecycle (REQ-080)
+  status String @default("OPEN") // OPEN | IN_PROGRESS | RESOLVED | CLOSED
+
+  // Triage result (REQ-014–020, REQ-025–053)
+  priority         String // CRITICAL | HIGH | MEDIUM | LOW
+  ageBand          String // NEW | AGEING | BREACHED
+  recommendedAction String // RESOLVE_NOW | INVESTIGATE | ESCALATE | REFER
+  routingQueue     String // CARD_DISPUTES | PAYMENTS_INVESTIGATIONS | INTERNAL_PAYMENTS_OPS | FRAUD_OPERATIONS
+  ruleId           String // matched rule, e.g. REQ-038 (REQ-050)
+  explanation      String // plain-language explanation (REQ-052)
+  decisionFactors  String // JSON-encoded factors object (REQ-051)
+  rulesEvaluated   String // JSON-encoded array of rule IDs checked (REQ-050)
+  fraudFlag        Boolean  @default(false) // CARD + UNAUTHORISED_TRANSACTION (REQ-035)
+  dueDate          DateTime // transactionDate + SLA_DAYS (REQ-020)
+
+  // Override audit (REQ-075–079)
+  isOverridden     Boolean @default(false)
+  originalAction   String?
+  originalPriority String?
+  overrideReason   String? // 10–300 chars when overridden
+  overriddenAt     DateTime?
+  overriddenBy     String?
+
+  // Resolution (REQ-081)
+  resolutionNote String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  transitions StatusTransition[]
+
+  @@index([priority])
+  @@index([status])
+  @@index([paymentType])
+  @@index([issueCategory])
+  @@index([recommendedAction])
+}
+
+/// Immutable audit log — one row per status change (REQ-084).
+model StatusTransition {
+  id         String   @id @default(uuid())
+  disputeId  String
+  dispute    Dispute  @relation(fields: [disputeId], references: [id], onDelete: Cascade)
+  fromStatus String? // null on creation
+  toStatus   String
+  note       String? // present only for RESOLVED transitions (REQ-081)
+  operatorId String
+  timestamp  DateTime @default(now())
+
+  @@index([disputeId])
 }

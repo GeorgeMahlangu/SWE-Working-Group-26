@@ -11,83 +11,84 @@
    ============================================================================= */
 
 :root {
-
   /* ---------------------------------------------------------------------------
      Layout & Surface
      --------------------------------------------------------------------------- */
-  --color-bg:              #ECEEF5;   /* page background — light lavender grey */
-  --color-surface:         #FFFFFF;   /* card, panel, modal backgrounds */
-  --color-surface-raised:  #F5F6FA;   /* hover states, elevated dropdowns */
-  --color-border:          #E0E2EB;   /* structural dividers, card borders */
-  --color-border-subtle:   #ECEEF5;   /* low-contrast separators */
+  --color-bg: #eceef5; /* page background — light lavender grey */
+  --color-surface: #ffffff; /* card, panel, modal backgrounds */
+  --color-surface-raised: #f5f6fa; /* hover states, elevated dropdowns */
+  --color-border: #e0e2eb; /* structural dividers, card borders */
+  --color-border-subtle: #eceef5; /* low-contrast separators */
 
   /* ---------------------------------------------------------------------------
      Typography
      --------------------------------------------------------------------------- */
-  --color-text-primary:    #111827;   /* headings, data labels */
-  --color-text-secondary:  #6B7280;   /* supporting text, column headers */
-  --color-text-muted:      #9CA3AF;   /* timestamps, placeholders, disabled */
+  --color-text-primary: #111827; /* headings, data labels */
+  --color-text-secondary: #6b7280; /* supporting text, column headers */
+  --color-text-muted: #9ca3af; /* timestamps, placeholders, disabled */
 
   /* ---------------------------------------------------------------------------
      Brand — Standard Bank blue
      Use only for: top bar background, primary buttons, active nav indicator
      --------------------------------------------------------------------------- */
-  --color-topbar:          #0033A0;
-  --color-accent:          #0033A0;
-  --color-accent-hover:    #002580;
-  --color-accent-text:     #FFFFFF;   /* text on accent-colored surfaces */
+  --color-topbar: #0033a0;
+  --color-accent: #0033a0;
+  --color-accent-hover: #002580;
+  --color-accent-text: #ffffff; /* text on accent-colored surfaces */
 
   /* ---------------------------------------------------------------------------
      Recommended Action — row left-border AND action badge fill
      DESIGN-002: Pill badges confirmed for Action column; row left-border retained
      --------------------------------------------------------------------------- */
-  --color-action-immediate:    #DC2626;   /* RESOLVE_NOW — red */
-  --color-action-investigate:  #374151;   /* INVESTIGATE — dark charcoal */
-  --color-action-escalate:     #1565C0;   /* ESCALATE — blue */
-  --color-action-refer:        #6B7280;   /* REFER — slate grey */
-  --color-action-closed:       #15803D;   /* CLOSED / RESOLVED — green */
+  --color-action-immediate: #dc2626; /* RESOLVE_NOW — red */
+  --color-action-investigate: #374151; /* INVESTIGATE — dark charcoal */
+  --color-action-escalate: #1565c0; /* ESCALATE — blue */
+  --color-action-refer: #6b7280; /* REFER — slate grey */
+  --color-action-closed: #15803d; /* CLOSED / RESOLVED — green */
 
   /* ---------------------------------------------------------------------------
      Priority badge fills — solid background, white text
      --------------------------------------------------------------------------- */
-  --color-priority-critical:   #DC2626;   /* CRITICAL */
-  --color-priority-high:       #EA580C;   /* HIGH */
-  --color-priority-medium:     #4338CA;   /* MEDIUM */
-  --color-priority-low:        #16A34A;   /* LOW */
+  --color-priority-critical: #dc2626; /* CRITICAL */
+  --color-priority-high: #ea580c; /* HIGH */
+  --color-priority-medium: #4338ca; /* MEDIUM */
+  --color-priority-low: #16a34a; /* LOW */
 
   /* ---------------------------------------------------------------------------
      Dispute status badge fills
      --------------------------------------------------------------------------- */
-  --color-status-open:         #E5E7EB;   /* OPEN — light grey fill, dark text */
-  --color-status-open-text:    #374151;
-  --color-status-in-progress:  #2563EB;   /* IN_PROGRESS — blue fill, white text */
-  --color-status-resolved:     #16A34A;   /* RESOLVED — green fill, white text */
-  --color-status-closed-fill:  #1F2937;   /* CLOSED — charcoal fill, white text */
+  --color-status-open: #e5e7eb; /* OPEN — light grey fill, dark text */
+  --color-status-open-text: #374151;
+  --color-status-in-progress: #2563eb; /* IN_PROGRESS — blue fill, white text */
+  --color-status-resolved: #16a34a; /* RESOLVED — green fill, white text */
+  --color-status-closed-fill: #1f2937; /* CLOSED — charcoal fill, white text */
 
   /* ---------------------------------------------------------------------------
      SLA status indicators (Disputes by Category table, Priority Queue)
      --------------------------------------------------------------------------- */
-  --color-sla-breached:        #DC2626;   /* Breached badge */
-  --color-sla-warning:         #D97706;   /* Warning badge */
-  --color-sla-ontrack:         #16A34A;   /* On Track badge */
+  --color-sla-breached: #dc2626; /* Breached badge */
+  --color-sla-warning: #d97706; /* Warning badge */
+  --color-sla-ontrack: #16a34a; /* On Track badge */
 
   /* ---------------------------------------------------------------------------
      Typography scale
      --------------------------------------------------------------------------- */
-  --text-xs:   11px;
-  --text-sm:   13px;
+  --text-xs: 11px;
+  --text-sm: 13px;
   --text-base: 15px;
-  --text-lg:   18px;
-  --text-xl:   22px;
+  --text-lg: 18px;
+  --text-xl: 22px;
 
   --font-display: 'Inter', system-ui, sans-serif;
-  --font-data:    'JetBrains Mono', 'Courier New', monospace;
+  --font-data: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 /* =============================================================================
    BASE RESET
    ============================================================================= */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -105,8 +106,12 @@ body {
 
 /* Loading bar — 2px, accent color, no spinners, no skeletons */
 @keyframes loading-bar {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
 }
 .loading-bar-inner {
   animation: loading-bar 1.2s ease infinite;
@@ -114,14 +119,26 @@ body {
 
 /* Detail panel slide-in from right */
 @keyframes slide-in {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
-.panel-slide-in { animation: slide-in 0.15s ease; }
+.panel-slide-in {
+  animation: slide-in 0.15s ease;
+}
 
 /* Modal fade-in */
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.modal-fade-in { animation: fade-in 0.15s ease; }
+.modal-fade-in {
+  animation: fade-in 0.15s ease;
+}

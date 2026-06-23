@@ -1,11 +1,20 @@
 export type PaymentType = 'CARD' | 'EFT' | 'INTERNAL_TRANSFER';
-export type IssueCategory = 'DUPLICATE_DEBIT' | 'FAILED_TRANSFER' | 'MISSING_PAYMENT' | 'UNAUTHORISED_TRANSACTION' | 'INCORRECT_AMOUNT';
+export type IssueCategory =
+  | 'DUPLICATE_DEBIT'
+  | 'FAILED_TRANSFER'
+  | 'MISSING_PAYMENT'
+  | 'UNAUTHORISED_TRANSACTION'
+  | 'INCORRECT_AMOUNT';
 export type TransactionStatus = 'SETTLED' | 'PENDING' | 'FAILED' | 'REVERSED';
 export type RecommendedAction = 'RESOLVE_NOW' | 'INVESTIGATE' | 'ESCALATE' | 'REFER';
 export type Priority = 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
 export type AgeBand = 'NEW' | 'AGEING' | 'BREACHED';
 export type DisputeStatus = 'OPEN' | 'IN_PROGRESS' | 'RESOLVED' | 'CLOSED';
-export type RoutingQueue = 'CARD_DISPUTES' | 'PAYMENTS_INVESTIGATIONS' | 'INTERNAL_PAYMENTS_OPS' | 'FRAUD_OPERATIONS';
+export type RoutingQueue =
+  | 'CARD_DISPUTES'
+  | 'PAYMENTS_INVESTIGATIONS'
+  | 'INTERNAL_PAYMENTS_OPS'
+  | 'FRAUD_OPERATIONS';
 
 export interface Dispute {
   id: string;

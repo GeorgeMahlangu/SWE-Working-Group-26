@@ -36,24 +36,24 @@ Current scaffold notes:
 
 ## Phase 0 — Foundation & data layer
 
-- [ ] 0.1 Replace `server/prisma/schema.prisma` with `Dispute` and `StatusTransition` models (all fields incl. override + audit) using SQLite
+- [x] 0.1 Replace `server/prisma/schema.prisma` with `Dispute` and `StatusTransition` models (all fields incl. override + audit) using SQLite
   - _Requirements: REQ-002, REQ-078, REQ-080, REQ-084, REQ-112_
-- [ ] 0.2 Add `.env` with `DATABASE_URL="file:./dev.db"`; run `db:generate` + `db:migrate`
+- [x] 0.2 Add `.env` with `DATABASE_URL="file:./dev.db"`; run `db:generate` + `db:migrate`
   - _Requirements: REQ-112_
-- [ ] 0.3 Create `server/src/types/dispute.ts` (enums + Dispute + Triage result interfaces) mirroring the client types
+- [x] 0.3 Create `server/src/types/dispute.ts` (enums + Dispute + Triage result interfaces) mirroring the client types
   - _Requirements: REQ-002_
-- [ ] 0.4 Create `server/src/config/params.ts` with business-parameter constants (thresholds, age days, hours)
+- [x] 0.4 Create `server/src/config/params.ts` with business-parameter constants (thresholds, age days, hours)
   - _Requirements: REQ-111, conventions_
 
 ## Phase 1 — Triage engine (pure, fully tested)
 
-- [ ] 1.1 `rules/triageRules.ts` — one pure function per rule REQ-031–048
+- [x] 1.1 `rules/triageRules.ts` — one pure function per rule REQ-031–048
   - _Requirements: REQ-031–048_
-- [ ] 1.2 Helpers: age + ageBand, base priority, due date, queue assignment (with fraud override)
+- [x] 1.2 Helpers: age + ageBand, base priority, due date, queue assignment (with fraud override)
   - _Requirements: REQ-010–020, REQ-025–028_
-- [ ] 1.3 `services/triageEngine.ts` — ordered first-match evaluation, 7/14-day modifiers, fraudFlag, build ruleId/explanation/factors/rulesEvaluated
+- [x] 1.3 `services/triageEngine.ts` — ordered first-match evaluation, 7/14-day modifiers, fraudFlag, build ruleId/explanation/factors/rulesEvaluated
   - _Requirements: REQ-030, REQ-018, REQ-019, REQ-035, REQ-050–053_
-- [ ] 1.4 Unit tests covering every rule REQ-031–048 + determinism (100% rule coverage)
+- [x] 1.4 Unit tests covering every rule REQ-031–048 + determinism (100% rule coverage)
   - _Requirements: REQ-030–048, REQ-054_
 
 ## Phase 2 — Dispute capture API
